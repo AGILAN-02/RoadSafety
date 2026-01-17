@@ -12,6 +12,8 @@ cur.execute("CREATE TABLE imageslog(filename TEXT, website TEXT)")
 cur.execute("INSERT INTO mapping VALUES('605004','pondicherry.com')")
 cur.execute("INSERT INTO mapping VALUES('605106','cuddalore.com')")
 cur.execute("INSERT INTO mapping VALUES('627003','tirunelveli.com')")
+cur.execute("INSERT INTO mapping VALUES('600089','Ramapuram-Chennai.com')")
+cur.execute("INSERT INTO mapping VALUES('600116','Porur-chennai.com')")
 
 conn.commit()
 conn.close()
