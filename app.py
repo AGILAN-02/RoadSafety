@@ -96,10 +96,10 @@ st.markdown("""
     
     /* Input fields */
     .stTextInput > div > div > input, input {
-        background: rgba(255, 255, 255, 0.1) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
         border: 2px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 12px !important;
-        color: white !important;
+        color: #000000 !important;
         font-family: 'Poppins', sans-serif !important;
         padding: 14px 18px !important;
     }
