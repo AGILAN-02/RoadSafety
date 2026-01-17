@@ -23,169 +23,198 @@ st.markdown("""
     
     /* Main app styling */
     .stApp {
-        background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #0f0c29, #302b63, #24243e) !important;
+        font-family: 'Poppins', sans-serif !important;
+    }
+    
+    /* Force dark background */
+    .main {
+        background: transparent !important;
+    }
+    
+    /* Override default section background */
+    section[data-testid="stSidebar"],
+    .block-container {
+        background: transparent !important;
     }
     
     /* Hide Streamlit branding */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
+    #MainMenu {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
+    header {visibility: hidden !important;}
     
     /* Header styling */
-    h1 {
-        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 700;
-        letter-spacing: -1px;
+    h1, .stMarkdown h1 {
+        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        font-weight: 700 !important;
+        letter-spacing: -1px !important;
         font-size: 42px !important;
-        margin-bottom: 10px;
+        margin-bottom: 10px !important;
     }
     
-    h2 {
-        color: rgba(255, 255, 255, 0.9);
-        font-weight: 600;
+    h2, .stMarkdown h2 {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 600 !important;
         font-size: 24px !important;
     }
     
-    h3 {
-        color: rgba(255, 255, 255, 0.8);
-        font-weight: 500;
+    h3, .stMarkdown h3 {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-weight: 500 !important;
+    }
+    
+    /* All text elements */
+    p, .stMarkdown p, span, div {
+        color: rgba(255, 255, 255, 0.8) !important;
     }
     
     /* Tab styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 10px;
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
+        gap: 10px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        padding: 10px !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(10px) !important;
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        color: white;
-        font-weight: 600;
-        padding: 12px 24px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        color: white !important;
+        font-weight: 600 !important;
+        padding: 12px 24px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
-        border-color: transparent;
+        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%) !important;
+        border-color: transparent !important;
     }
     
     /* Input fields */
-    .stTextInput > div > div > input {
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 12px;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        padding: 14px 18px;
+    .stTextInput > div > div > input, input {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 12px !important;
+        color: white !important;
+        font-family: 'Poppins', sans-serif !important;
+        padding: 14px 18px !important;
     }
     
-    .stTextInput > div > div > input:focus {
-        border-color: #ff6b00;
-        box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+    .stTextInput > div > div > input:focus, input:focus {
+        border-color: #ff6b00 !important;
+        box-shadow: 0 0 20px rgba(255, 107, 0, 0.3) !important;
+    }
+    
+    .stTextInput label {
+        color: rgba(255, 255, 255, 0.9) !important;
     }
     
     /* File uploader */
-    .stFileUploader > div {
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 12px;
-        padding: 20px;
+    .stFileUploader > div, [data-testid="stFileUploader"] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+    }
+    
+    .stFileUploader label {
+        color: rgba(255, 255, 255, 0.9) !important;
     }
     
     /* Buttons */
-    .stButton > button {
-        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 16px 32px;
-        font-weight: 600;
-        font-family: 'Poppins', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        width: 100%;
-        transition: all 0.3s;
+    .stButton > button, button {
+        background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 16px 32px !important;
+        font-weight: 600 !important;
+        font-family: 'Poppins', sans-serif !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        width: 100% !important;
+        transition: all 0.3s !important;
     }
     
-    .stButton > button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5);
+    .stButton > button:hover, button:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5) !important;
     }
     
     /* Success/Error/Warning messages */
-    .stSuccess {
-        background: rgba(76, 175, 80, 0.2);
-        border: 1px solid rgba(76, 175, 80, 0.5);
-        border-radius: 12px;
-        color: #8BC34A;
+    .stSuccess, [data-testid="stSuccess"] {
+        background: rgba(76, 175, 80, 0.2) !important;
+        border: 1px solid rgba(76, 175, 80, 0.5) !important;
+        border-radius: 12px !important;
+        color: #8BC34A !important;
     }
     
-    .stError {
-        background: rgba(244, 67, 54, 0.2);
-        border: 1px solid rgba(244, 67, 54, 0.5);
-        border-radius: 12px;
-        color: #EF5350;
+    .stError, [data-testid="stError"] {
+        background: rgba(244, 67, 54, 0.2) !important;
+        border: 1px solid rgba(244, 67, 54, 0.5) !important;
+        border-radius: 12px !important;
+        color: #EF5350 !important;
     }
     
-    .stWarning {
-        background: rgba(255, 193, 7, 0.2);
-        border: 1px solid rgba(255, 193, 7, 0.5);
-        border-radius: 12px;
-        color: #FFC107;
+    .stWarning, [data-testid="stWarning"] {
+        background: rgba(255, 193, 7, 0.2) !important;
+        border: 1px solid rgba(255, 193, 7, 0.5) !important;
+        border-radius: 12px !important;
+        color: #FFC107 !important;
     }
     
     /* Info box */
-    .stInfo {
-        background: rgba(33, 150, 243, 0.2);
-        border: 1px solid rgba(33, 150, 243, 0.5);
-        border-radius: 12px;
-        color: #42A5F5;
+    .stInfo, [data-testid="stInfo"] {
+        background: rgba(33, 150, 243, 0.2) !important;
+        border: 1px solid rgba(33, 150, 243, 0.5) !important;
+        border-radius: 12px !important;
+        color: #42A5F5 !important;
     }
     
     /* Labels */
-    label {
+    label, .stMarkdown label {
         color: rgba(255, 255, 255, 0.9) !important;
         font-weight: 600 !important;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
         font-size: 13px !important;
     }
     
-    /* Container background */
-    div[data-testid="stVerticalBlock"] > div {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 16px;
-        padding: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    /* Container background - removed to avoid conflicts */
     
     /* Image styling */
     img {
-        border-radius: 16px;
-        transition: transform 0.3s;
+        border-radius: 16px !important;
+        transition: transform 0.3s !important;
     }
     
     img:hover {
-        transform: scale(1.05);
-    }
-    
-    /* Markdown text */
-    .stMarkdown {
-        color: rgba(255, 255, 255, 0.8);
+        transform: scale(1.05) !important;
     }
     
     /* Column spacing */
     div[data-testid="column"] {
-        padding: 10px;
+        padding: 10px !important;
+    }
+    
+    /* Metric styling */
+    [data-testid="stMetric"] {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+    }
+    
+    [data-testid="stMetricLabel"] {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    [data-testid="stMetricValue"] {
+        color: #ffc107 !important;
     }
 </style>
 """, unsafe_allow_html=True)
