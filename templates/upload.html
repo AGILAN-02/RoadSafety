@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Image with ID</title>
+    <title>Road Safety - Upload Image</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,29 +14,99 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            background: #0f0c29;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,193,7,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
         
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            padding: 50px;
+            max-width: 550px;
             width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 107, 0, 0.6); }
         }
         
         h1 {
-            color: #333;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
             text-align: center;
-            font-size: 28px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 35px;
+            font-weight: 300;
         }
         
         .form-group {
@@ -43,64 +115,100 @@
         
         label {
             display: block;
-            margin-bottom: 8px;
-            color: #555;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         input[type="text"],
         input[type="file"] {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: border-color 0.3s;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
         
         input[type="text"]:focus,
         input[type="file"]:focus {
             outline: none;
-            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ff6b00;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+            transform: translateY(-2px);
         }
         
         input[type="file"] {
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         input[type="file"]::file-selector-button {
-            background-color: #667eea;
+            background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: background-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            margin-right: 10px;
         }
         
         input[type="file"]::file-selector-button:hover {
-            background-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.4);
         }
         
         button {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px;
+            background: linear-gradient(135deg, #ff6b00 0%, #ffc107 100%);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
         }
         
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5);
+        }
+        
+        button:hover::before {
+            left: 100%;
         }
         
         button:active {
@@ -110,21 +218,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Upload Image with ID</h1>
+        <div class="header-icon">🚦</div>
+        <h1>Road Safety Upload</h1>
+        <p class="subtitle">Upload images to monitor road safety conditions</p>
         
         <form method="POST" action="/upload" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="id">ID:</label>
-                <input type="text" id="id" name="id" placeholder="Enter ID (e.g., 101)" required>
+                <label for="id">📍 Location ID</label>
+                <input type="text" id="id" name="id" placeholder="e.g., 605004" required>
             </div>
             
             <div class="form-group">
-                <label for="file">Image File:</label>
+                <label for="file">📷 Upload Image</label>
                 <input type="file" id="file" name="file" accept="image/*" required>
             </div>
             
-            <button type="submit">Upload</button>
+            <button type="submit">🚀 Upload Image</button>
         </form>
+        
+        <div style="display: flex; gap: 10px; margin-top: 25px;">
+            <a href="/" style="flex: 1; text-align: center; padding: 12px; color: white; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s;">🏠 Home</a>
+            <a href="#" onclick="document.getElementById('id').value=''; return false;" style="flex: 1; text-align: center; padding: 12px; color: white; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s;">🔄 Clear</a>
+        </div>
     </div>
 </body>
 </html>
