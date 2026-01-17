@@ -95,18 +95,31 @@ st.markdown("""
     }
     
     /* Input fields */
-    .stTextInput > div > div > input, input {
+    .stTextInput > div > div > input, 
+    .stTextInput input,
+    input[type="text"],
+    input {
         background: rgba(255, 255, 255, 0.95) !important;
         border: 2px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 12px !important;
         color: #000000 !important;
         font-family: 'Poppins', sans-serif !important;
         padding: 14px 18px !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     
-    .stTextInput > div > div > input:focus, input:focus {
+    .stTextInput > div > div > input::placeholder {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    .stTextInput > div > div > input:focus, 
+    .stTextInput input:focus,
+    input[type="text"]:focus,
+    input:focus {
         border-color: #ff6b00 !important;
         box-shadow: 0 0 20px rgba(255, 107, 0, 0.3) !important;
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     
     .stTextInput label {
